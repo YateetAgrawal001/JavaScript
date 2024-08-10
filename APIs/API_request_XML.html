@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API request using XML :-- legendary way</title>
+</head>
+<body style = "background-color: black ; color: aliceblue;">
+   In this i am old way of accesing the apis using XMLHttps
+</body>
+<script>
+    const url = 'https://api.github.com/users/YateetAgrawal001';
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET',url)
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState)
+        if(xhr.readyState === 4){
+        const data = JSON.parse(this.responseText)  //--> converts data into the object from string
+        console.log(data)
+        console.log(data.public_repos) // accesing the data using object 
+        }
+    }
+    xhr.send();
+
+</script>
+</html>
